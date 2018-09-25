@@ -24,16 +24,26 @@ class RandomPlayer(AbstractPlayer):
         pass
 
 
+class ALwaysRockPlayer(AbstractPlayer):
+
+    def move(self):
+        move = "rock"
+        return move
+
+    def learn(self, their_move, my_move):
+        pass
+
+
 class HumanPlayer(AbstractPlayer):
 
     def move(self):
-            move = input("Enter your move: ")
-            while move not in moves:
-                move = input("Invalid move, choose again: ")
-            return move
+        move = input("Enter your move: ")
+        while move not in moves:
+            move = input("Invalid move, choose again: ")
+        return move
 
     def learn(self, their_move, my_move):
-            pass
+        pass
 
 
 class ReflectPlayer(AbstractPlayer):
@@ -88,5 +98,6 @@ playerMappings = {
     "RandomPlayer": RandomPlayer,
     "HumanPlayer": HumanPlayer,
     "CyclePlayer": CyclePlayer,
-    "ReflectPlayer": ReflectPlayer
+    "ReflectPlayer": ReflectPlayer,
+    "AlwaysRockPlayer": ALwaysRockPlayer
 }
